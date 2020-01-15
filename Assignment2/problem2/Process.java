@@ -28,8 +28,11 @@ public class Process {
      * @param p the first {@code Process} to calculate waiting time
      */
     public void waitingTime(Process p) {
-        this.service_time = p.service_time + p.burst_time;
-        this.waiting_time = this.service_time - this.arrival_time;
+        this.service_time = p.arrival_time + p.burst_time + p.waiting_time;
+        if(this.service_time > this.arrival_time)
+            this.waiting_time = this.service_time - this.arrival_time;
+        else
+            this.waiting_time = 0;
         average_waiting_time += this.waiting_time;
     }
 

@@ -3,7 +3,7 @@ import java.io.*;
 public class main__ {
     public static void main(String args[]) {
 
-        int process_num, i, chance = 3, minchance = 0;
+        int process_num, i, chance = 3, minchance = 0, number2 = 2;
         double awt, tat;
         boolean flag = true;
 
@@ -12,35 +12,36 @@ public class main__ {
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 System.out.print("Enter number of process : ");
                 process_num = Integer.parseInt(br.readLine());
-                Process p[] = new Process[process_num];
+                int p[][] = new int[process_num][number2];
+                Process processNum[] = new Process[process_num];
 
-                int arv_tm, bst_tm;
                 String name;
-                // take each process arival and bust time
+                
+                for(i=0; i < process_num ; i++){
+                    System.out.print("Arival time : ");
+                    p[i][0] = Integer.parseInt(br.readLine());
+                    System.out.print("Bust time : ");
+                    p[i][1] = Integer.parseInt(br.readLine());                    
+                }
+                
                 for (i = 0; i < process_num; i++) {
                     name = "P" + (i + 1);
-                    System.out.println("For process " + name);
-                    System.out.print("Arival time : ");
-                    arv_tm = Integer.parseInt(br.readLine());
-                    System.out.print("Bust time : ");
-                    bst_tm = Integer.parseInt(br.readLine());
-                    p[i] = new Process(name, arv_tm, bst_tm);
-                    System.out.println(i);
+                    processNum[i] = new Process(name, p[i][0], p[i][1]);
                 }
-
-                p[0].waiting_time = 0;
+                
+                processNum[0].waiting_time = 0;
                 i = 1;
                 // set waiting time for each process
                 while (i < process_num) {
-                    p[i].waitingTime(p[i - 1]);
+                    processNum[i].waitingTime(processNum[i - 1]);
                     i++;
                 }
 
                 i = 0;
                 //set turnaround time and complete time
                 while (i < process_num) {
-                    p[i].turnaroundTime();
-                    p[i].completeTime();
+                    processNum[i].turnaroundTime();
+                    processNum[i].completeTime();
                     i++;
                 }
 
@@ -53,7 +54,7 @@ public class main__ {
 
                 i = 0;
                 while (i < process_num) {
-                    p[i].show();
+                    processNum[i].show();
                     i++;
                 }
                 System.out.println(" Average Waiting Time : " + awt
