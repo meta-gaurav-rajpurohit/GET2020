@@ -19,32 +19,22 @@ public class ArrOperation {
         int maxpattern = number0;
         
         assert(arrayLength != 0):"Array Empty";
-        
-        // 1 2 3 2 1 3 2 1
-        // 0 1 2 3 4 5 6 7
+
         for (int i = number0; i < arrayLength; i++) {
             int count = number0;
             for (int j = arrayLength - 1; (j >= number0)
                     && (i + count) < maxMirror.length; j--) {
                 if (maxMirror[i + count] == maxMirror[j]) {
-                    System.out.println("C " + count + " "
-                            + maxMirror[i + count] + " " + maxMirror[j] + " "
-                            + i + " " + j);
                     count++;
                 } else {
                     if (count > maxpattern)
                         maxpattern = count;
-                    System.out.println("M " + maxpattern + " "
-                            + maxMirror[i + count] + " " + maxMirror[j] + " "
-                            + i + " " + j);
                     count = 0;
                     System.out.println();
                 }
             }
-            System.out.println("\n********************");
             if (count > maxpattern) {
-                maxpattern = count;
-                System.out.println("\n-------------------------");
+                maxpattern = count;   
             }
         }
         return maxpattern;
