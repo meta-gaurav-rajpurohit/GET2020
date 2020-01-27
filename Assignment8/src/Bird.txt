@@ -1,0 +1,2 @@
+ID		Name		Age	Weight	Type		Zone
+BOwl4		qw		12	3	Owl		1
