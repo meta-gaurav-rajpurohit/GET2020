@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Metacube Parking System</title>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+
+        let ID = 0;
+        let Daily , Monthly , Yearly ;
+        let USD = 0.013, YEN = 1.54;
+
+        function registration(){
+      
+            ID++;
+            var name = document.getElementById('Name').value;
+            var namePattern = /^[A-Za-z ]{3,}$/;
+            if(!namePattern.test(name)){
+                alert("Enter valid Name");
+                return;
+            }
+
+            var email= document.getElementById("EmailID").value;
+            var emailPattern = /^[A-za-z_.]{3,}@[A-za-z]{3,7}[.]{1}[A-za-z.]{2,6}$/;
+            if(!emailPattern.test(email)){
+                alert("Enter valid Email ID");
+                return;
+            }
+
+            var password = document.getElementById('Password').value;
+            var ConfirmPassword = document.getElementById('ConfirmPassword').value;
+            if(password != ConfirmPassword){
+                alert("Password does not match");
+                return;
+            }
+
+            var number = document.getElementById("MobileNumber").value;
+            var numberPattern = /^[0-9]{10,14}$/;
+            if(!numberPattern.test(number)){
+                alert("Enter valid Number");
+                return;
+            }
+
+            
+            document.getElementById('containRegistrationForm').style.display = 'none';
+            swal("1st step done",{
+                icon: "success",
+            });
+            document.getElementById('VehicleForm').style.display = 'block';
+            document.getElementById('empId').placeholder = ID;
+        }
+        function getPass(){
+
+            var vehiclePass = document.getElementById('VehicleName');
+            var vehiclePassType = vehiclePass.options[vehiclePass.selectedIndex].text; 
+            var vehiclePrice = document.getElementById('VehicleCurrency');
+            var vehiclePriceType = vehiclePrice.options[vehiclePrice.selectedIndex].text; 
+            if(vehiclePassType == 'Cycle'){
+                document.getElementById("heading").innerHTML = "Cycle Pass";
+                Daily = 5;
+                Monthly = 100;
+                Yearly = 500;
+            }
+            else if(vehiclePassType == 'MotorCycle'){
+                document.getElementById("heading").innerHTML = "MotorCycle Pass";
+                Daily = 10;
+                Monthly = 200;
+                Yearly = 1000;
+            }
+            else if(vehiclePassType == 'Four Wheelers'){
+                document.getElementById("heading").innerHTML = "Four Wheelers Pass";
+                Daily = 20;
+                Monthly = 500;
+                Yearly = 3500;
+            }
+            if(vehiclePriceType == 'INR'){
+                document.getElementById("myButton1").value = Daily ;
+                document.getElementById("myButton2").value = Monthly ;
+                document.getElementById("myButton3").value = Yearly;
+            }
+            else if(vehiclePriceType == 'USD'){
+                document.getElementById("myButton1").value = Daily * USD;
+                document.getElementById("myButton2").value = Monthly * USD ;
+                document.getElementById("myButton3").value = Yearly * USD;
+            }
+            else if(vehiclePriceType == 'YEN'){
+                document.getElementById("myButton1").value = Daily * YEN;
+                document.getElementById("myButton2").value = Monthly * YEN;
+                document.getElementById("myButton3").value = Yearly * YEN;
+            }
+            document.getElementById('VehicleForm').style.display = 'none';
+            swal("2nd step done",{
+                icon: "success",
+            });
+            document.getElementById('pass').style.display = 'block';
+
+        }
+        function result(answer){
+            
+            document.getElementById("idInReceipt").innerHTML = document.getElementById("empId").placeholder ;
+            var name = document.getElementById('Name').value;
+            document.getElementById("nameInReceipt").innerHTML = name ;
+            var gender;
+            if (document.getElementById('r1').checked) {
+                gender = document.getElementById('r1').value;
+
+            }
+            if (document.getElementById('r2').checked) {
+                gender = document.getElementById('r2').value;
+            }
+            if (document.getElementById('r3').checked) {
+                gender = document.getElementById('r3').value;
+            }
+            document.getElementById("genderInReceipt").innerHTML = gender ; 
+            var mobileNumber = document.getElementById('MobileNumber').value ; 
+            document.getElementById("numberInReceipt").innerHTML =  mobileNumber;
+            var vehiclePass = document.getElementById('VehicleName');
+            var vehiclePassType = vehiclePass.options[vehiclePass.selectedIndex].text;
+            document.getElementById("vehicleTypeInReceipt").innerHTML = vehiclePassType;
+            var vahicleNameReceipt = document.getElementById('inputVehicleName').value ;
+            document.getElementById("vehicleNameInReceipt").innerHTML = vahicleNameReceipt ; 
+            var vahicleNumber = document.getElementById('VehicleNumber').value;
+            document.getElementById("vehicleNumberInReceipt").innerHTML = vahicleNumber ; 
+            document.getElementById("priceInReceipt").innerHTML = answer ; 
+            
+            document.getElementById('pass').style.display = 'none';
+            swal("3rd step done",{
+                icon: "success",
+            });
+            document.getElementById('receipt').style.display = 'block';
+
+            
+        }
+        </script>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #VehicleName, #VehicleCurrency{
+                background: transparent;
+                border: 1px solid rgba(19, 48, 48, 0.575);
+            }
+            #receipt{
+                display: none;
+            }
+            .empForm {
+                margin : 80px auto;
+                padding: 20px;
+                padding-bottom: 0px;
+                width : 800px;
+                height: auto;
+                border-radius: 25px;
+                background: rgba(175,238,238, 0.575);
+                box-shadow: 5px 25px 25px rgba(175,238,238, 0.575);
+            }
+            #pass{
+                padding-bottom: 30px;
+                display: none;
+            }
+            #VehicleForm{
+                display: none;
+            }
+            #submitVehical , #submitRegistration{
+                margin-bottom: 10px;
+                margin-left: calc(50% - 75px);
+                margin-top: 50px;
+                border-radius: 25px;
+                width : 150px;
+                height : 50px;
+            }
+            .empFormHeading{
+                text-align: center;
+            }
+            .passPrice{
+                width: 70px;
+                text-align: center;
+            }
+            body{
+                margin: 0;
+                padding: 0;
+               
+                background : url(po.jpg);
+                background-size: cover;
+            }
+            fieldset{
+                margin: 5px;
+                padding: 5px;
+                border-radius: 25px;
+                text-align: justify;
+                width : 300px;
+                display: inline-block;
+                border: 1px solid rgba(19, 48, 48, 0.575);
+            }
+            legend{
+                margin-left: 20px;
+                font-size: 18px;
+            }
+            
+
+            .input:focus, .submit:focus, select:focus, #submitVehical:focus, #submitRegistration:focus{
+                outline : none;
+            }
+            .input{
+                margin-left: 20px;
+                margin-right: 20px;
+                width: 300px;
+                height : 20px;
+                border : none;
+                background: transparent;
+            }
+            .gender{
+                margin-left : 40px;
+                margin-right : 5px;
+                margin-top : 5px;
+                margin-bottom : 8px;
+                font-size: 20px;
+            }
+            form{
+                padding-top : 25px;
+                padding-left: 25px;
+                padding-bottom: 0px;
+                height : auto;
+            }
+            select{
+                margin-top: 20px;
+                margin-left: 10px;
+                border-radius: 25px;
+                padding-left: 20px;
+                width : 350px;
+                height: 43px;
+            }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                padding: 15px;
+            }
+            th {
+                text-align: center;   
+            }
+            table{
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body >
+        <div id = "containRegistrationForm" class = "empForm">
+            <div class = "empFormHeading">
+                <h1>Employee’s Details</h1>
+            </div>
+            <form>
+                
+                <fieldset>
+                <legend>Name</legend>
+                <input id = "Name" class = "input" type = "text" name = "Name" placeholder = "Name" required/><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Email ID</legend>
+                    <input id = "EmailID" class = "input" type = "email" placeholder = "Email ID" required/><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Password</legend>
+                <input id = "Password" class = "input" type = "password" name = "Password" placeholder = "Password" required/><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Confirm Password</legend>
+                    <input id = "ConfirmPassword" class = "input" type = "password" name = "ConfirmPassword" placeholder = "Confirm Password" required/><br>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Mobile Number</legend>
+                    <input id = "MobileNumber" class = "input" type = "text" name = "number" placeholder = "Mobile Number" required/><br>
+                </fieldset>
+                
+                
+                    <label><input id = "r1" class = "gender" type = "radio" name = "Gender" value="Male" checked/>Male</label>
+                    <label><input id = "r2" class = "gender" type = "radio" name = "Gender" value="Female"/>Female</label>
+                    <label><input id = "r3" class = "gender" type = "radio" name = "Gender" value="Other"/>Other</label><br>
+                
+
+                <input id = "submitRegistration" type = "button" value="SUBMIT" onclick = "registration()"/>
+                
+                <br><br><br>
+                
+            </form>
+        </div>
+        <div id = "VehicleForm" class = "empForm">
+                <div class = "empFormHeading">
+                    <h1>Add Vehicle</h1>
+                </div>
+            <form>
+                
+                <fieldset>
+                    <legend>Vehicle Name</legend>
+                <input id = "inputVehicleName" class = "input" type = "text" name = "VehicleName" placeholder = "Vehicle Name" /><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Vehicle Number</legend>
+                <input id = "VehicleNumber" class = "input" type = "text" name = "VehicleNumber" placeholder = "Vehicle Number" /><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Employee ID</legend>
+                <input id = "empId" class = "input" type = "text" name = "empId" readonly/><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Identification</legend>
+                <textarea id = "Identification" class = "input" placeholder="Identification" ></textarea><br>
+                </fieldset>
+                <select id = "VehicleName" name = "VehicleType">
+                    <option value = "Cycle">Cycle</option>
+                    <option value = "MotorCycle">MotorCycle</option>
+                    <option value = "FourWheelers">Four Wheelers</option>
+                </select>
+                <select id = "VehicleCurrency" name = "VehicleType">
+                    <option value = "INR">INR</option>
+                    <option value = "USD">USD</option>
+                    <option value = "YEN">YEN</option>
+                </select><br>
+                
+                <input id = "submitVehical" type = "button" value="GET PASS" onclick = "getPass()"/><br><br><br>
+            </form>
+        </div>
+        <div id = "pass" class = "empForm">
+            <table>
+                <tr>
+                    <th id = "heading" colspan="3"></th>
+                </tr>
+                <tr>
+                    <th>Daily Pass</th>
+                    <th>Monthly Pass</th>
+                    <th>Yearly Pass</th>
+                </tr>
+                <tr>
+                    <td><input id = "myButton1" class = "passPrice" type = "button" onclick = "result(this.value)"/></td>
+                    <td><input id = "myButton2" class = "passPrice" type = "button" onclick = "result(this.value)"/></td>
+                    <td><input id = "myButton3" class = "passPrice" type = "button" onclick = "result(this.value)"/></td>
+                </tr>
+            </table>
+        </div>
+        <div id = "receipt" class = "empForm">
+            <table id = "information">
+                <tr>
+                    <th colspan="3">Metacube Parking Receipt</th>
+                </tr>
+                <tr>
+                    <th>Employee ID : </th>
+                    <td id = "idInReceipt" colspan = "2"></td>
+                    
+                </tr>
+                <tr>
+                    <th>Name : </th>
+                    <td id = "nameInReceipt" colspan = "2"></td>
+                    
+                </tr>
+                <tr>
+                    <th>Mobile Number : </th>
+                    <th id = "numberInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                <tr>
+                    <th>Gender : </th>
+                    <th id = "genderInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                <tr>
+                    <th>Vehicle Name : </th>
+                    <th id = "vehicleNameInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                <tr>
+                    <th>Vehicle Number : </th>
+                    <th id = "vehicleNumberInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                <tr>
+                    <th>Vehicle Type : </th>
+                    <th id = "vehicleTypeInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                <tr>
+                    <th colspan = "2">Total Price : </th>
+                    <th id = "priceInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                
+            </table>
+        </div>
+    </body>
+</html>
