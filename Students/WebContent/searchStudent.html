@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div id = "containRegistrationForm" class = "empForm">
+            <div class = "empFormHeading">
+                <h1>Search Student</h1>
+            </div>
+            <form action = "search" onsubmit = "return search()" method = "get">
+                
+                <fieldset>
+                <legend>First Name</legend>
+                <input id = "FirstName" class = "input" type = "text" name = "FirstName" placeholder = "First Name" required/><br>
+                </fieldset>
+                
+                <fieldset>
+                <legend>Last Name</legend>
+                <input id = "LastName" class = "input" type = "text" name = "LastName" placeholder = "Last Name" required/><br>
+                </fieldset>
+                
+                <input id = "submitRegistration" type = "submit" value="Search"/>
+                
+                <br><br><br>
+                
+            </form>
+        </div>
+        <script>
+        	function search(){
+        		var firstName = document.getElementById('FirstName').value;
+            	var firstnamePattern = /^[A-Za-z ]{3,}$/;
+            	if (!firstnamePattern.test(firstName)) {
+            		alert("Enter valid First Name");
+            		return false;
+            	}
+
+            	var lastName = document.getElementById('LastName').value;
+            	var lastnamePattern = /^[A-Za-z ]{3,}$/;
+            	if (!lastnamePattern.test(lastName)) {
+            		alert("Enter valid Last Name");
+            		return false;
+            	}
+            	return true;
+        	}
+        
+        </script>
+</body>
+</html>
