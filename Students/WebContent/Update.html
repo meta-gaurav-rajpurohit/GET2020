@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<div id="containRegistrationForm" class="empForm">
+		<div class="empFormHeading">
+			<h1>Update Details</h1>
+		</div>
+		<form action="update" onsubmit = "return update()" method="post">
+
+			<fieldset>
+				<legend>First Name</legend>
+				<input id="FirstName" class="input" type="text" name="FirstName"
+					placeholder="First Name" required /><br>
+			</fieldset>
+
+			<fieldset>
+				<legend>Last Name</legend>
+				<input id="LastName" class="input" type="text" name="LastName"
+					placeholder="Last Name" required /><br>
+			</fieldset>
+
+			<fieldset>
+				<legend>Father Name</legend>
+				<input id="FatherName" class="input" type="text" name="FatherName"
+					placeholder="FatherName" required /><br>
+			</fieldset>
+
+			<fieldset>
+				<legend>Email ID</legend>
+				<input id="EmailID" class="input" type="email" name="email"
+					placeholder="Email ID" required readonly/><br>
+			</fieldset>
+
+			<fieldset>
+				<legend>Age</legend>
+				<input id="Age" class="input" type="text" name="Age"
+					placeholder="Age" required /><br>
+			</fieldset>
+
+			<fieldset>
+				<legend>Class</legend>
+				<select id="Class" name="Class">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+				</select><br>
+			</fieldset>
+			<input id="submitRegistration" type="submit" value="SUBMIT" /> <br>
+			<br>
+			<br>
+
+		</form>
+	</div>
+	<script src='UpdateByJavaScript.js'>
+		function update(){
+			var firstName = document.getElementById('FirstName').value;
+        	var firstnamePattern = /^[A-Za-z ]{3,}$/;
+        	if (!firstnamePattern.test(firstName)) {
+        		alert("Enter valid First Name");
+        		return false;
+        	}
+
+        	var lastName = document.getElementById('LastName').value;
+        	var lastnamePattern = /^[A-Za-z ]{3,}$/;
+        	if (!lastnamePattern.test(lastName)) {
+        		alert("Enter valid Last Name");
+        		return false;
+        	}
+
+        	var fatherName = document.getElementById('FatherName').value;
+        	var fathernamePattern = /^[A-Za-z ]{3,}$/;
+        	if (!fathernamePattern.test(fatherName)) {
+        		alert("Enter valid fatherName");
+        		return false;
+        	}
+        	
+        	var age = document.getElementById("Age").value;
+        	var agePattern = /^[0-9]{,3}$/;
+        	if (!agePattern.test(age) && (age < 0) && (age > 200)) {
+        		alert("Enter valid age");
+        		return false;
+        	}
+        	return true;
+        }
+		
+	</script>
+</body>
+</html>
