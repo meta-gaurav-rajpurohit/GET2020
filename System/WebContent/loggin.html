@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+<link rel="stylesheet" href="Styling.css">
+</head>
+<body>
+
+	<div id="containRegistrationForm" class="empForm">
+		<div class="empFormHeading">
+			<h1>LOGIN</h1>
+		</div>
+
+		<form action="login" method="post">
+			<fieldset>
+				<legend>Email ID</legend>
+				<input id="EmailID" class="input" type="text" name="email"
+					placeholder="Email ID" required /><br>
+			</fieldset>
+			<fieldset>
+				<legend>Password</legend>
+				<input id="Password" class="input" type="password" name="Password"
+					placeholder="Password" required /><br>
+			</fieldset>
+			<input id="submitRegistration" type="submit" onclick="varifyLogin()"
+				value="Login" /> <a href="SignUp.html"> <input id="submitLogin"
+				type="button" value="SignUp" /></a> <br> <br> <br>
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+<link rel="stylesheet" href="Styling.css">
+</head>
+<body>
+	<div id="containRegistrationForm" class="empForm">
+		<form action = "GetPass" method = "post">
+			<table>
+				<tr>
+					<th id="heading" colspan="3"></th>
+				</tr>
+				<tr>
+					<th>Daily Pass</th>
+					<th>Monthly Pass</th>
+					<th>Yearly Pass</th>
+				</tr>
+				<tr>
+					<td><label><input id="r1" class="Price" type="radio" name = "price" />
+					<input id="price1" class="passinput" type="text" readonly/></label></td>
+					<td><label><input id="r2" class="Price" type="radio" name = "price" />
+					<input id="price2" class="passinput" type="text" readonly/></label></td>
+					<td><label><input id="r3" class="Price" type="radio" name = "price" />
+					<input id="price3" class="passinput" type="text" readonly/></label></td>
+				</tr>
+			</table>
+			<input id="submitRegistration" type="submit" value="GET PRICE" onclick="getpass()" /> <br>
+			<br>
+			<br>
+
+		</form>
+	</div>
+	
+<script src = getpassJavaScript.js></script>
+</body>
+</html>
