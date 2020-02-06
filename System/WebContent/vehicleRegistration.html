@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+<link rel="stylesheet" href="Styling.css">
+
+</head>
+<body>
+	<div id="containRegistrationForm" class="empForm">
+		<div class="empFormHeading">
+			<h1>Add Vehicle</h1>
+		</div>
+		<form action="vehicleRegistration" method="post">
+
+			<fieldset>
+				<legend>Vehicle Name</legend>
+				<input id="inputVehicleName" class="input" type="text"
+					name="VehicleName" placeholder="Vehicle Name" /><br>
+			</fieldset>
+			<fieldset>
+				<legend>Vehicle Number</legend>
+				<input id="VehicleNumber" class="input" type="text"
+					name="VehicleNumber" placeholder="Vehicle Number" /><br>
+			</fieldset>
+			<fieldset>
+				<legend>Employee ID</legend>
+				<input id="empId" class="input" type="text" name="empId" readonly /><br>
+			</fieldset>
+			<fieldset>
+				<legend>Identification</legend>
+				<textarea id="Identification" class="input" name="Identification"
+					placeholder="Identification"></textarea>
+				<br>
+			</fieldset>
+			<select id="VehicleName" name="VehicleType">
+				<option value="Cycle">Cycle</option>
+				<option value="MotorCycle">MotorCycle</option>
+				<option value="FourWheelers">Four Wheelers</option>
+			</select>
+			 <select id="VehicleCurrency" name="VehicleCurrency">
+				<option value="INR">INR</option>
+				<option value="USD">USD</option>
+				<option value="YEN">YEN</option>
+			</select><br>
+			 <input id="submitVehical" type="submit" /><br>
+			<!-- onclick="getPass()" /><br> -->
+			<br> <br>
+		</form>
+	</div>
+	<script>
+	let url = new URL(window.location);
+	let empId = url.searchParams.get("empId");
+	alert(empId);
+	document.getElementById("empId").placeholder = empId;
+	document.getElementById("empId").value = empId;
+</script>
+</body>
+</html>

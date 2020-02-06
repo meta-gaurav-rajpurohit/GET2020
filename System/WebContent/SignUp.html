@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+<link rel="stylesheet" href="Styling.css">
+<script src = 'registration.js'></script>
+</head>
+<body>
+        <div id = "containRegistrationForm" class = "empForm">
+            <div class = "empFormHeading">
+                <h1>SIGN UP</h1>
+            </div>
+            <form action = "SignUp" onsubmit = "return varification()"method = "post">
+                
+                <fieldset>
+                <legend>Name</legend>
+                <input id = "Name" class = "input" type = "text" name = "Name" placeholder = "Name" required/><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Email ID</legend>
+                    <input id = "EmailID" class = "input" type = "email" name = "email" placeholder = "Email ID" required/><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Password</legend>
+                <input id = "Password" class = "input" type = "password" name = "Password" placeholder = "Password" required/><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Confirm Password</legend>
+                    <input id = "ConfirmPassword" class = "input" type = "password" name = "ConfirmPassword" placeholder = "Confirm Password" required/><br>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Mobile Number</legend>
+                    <input id = "MobileNumber" class = "input" type = "text" name = "number" placeholder = "Mobile Number" required/><br>
+                </fieldset>
+                
+                
+                    <label><input id = "r1" class = "gender" type = "radio" name = "Gender" value="Male" checked/>Male</label>
+                    <label><input id = "r2" class = "gender" type = "radio" name = "Gender" value="Female"/>Female</label>
+                    <label><input id = "r3" class = "gender" type = "radio" name = "Gender" value="Other"/>Other</label><br>
+                
+				<select id = "Organization" name = "Organization">
+                    <option value = "M1">M1</option>
+                    <option value = "M2">M2</option>
+                    <option value = "M3">M3</option>
+                </select><br>
+                
+                <input id = "submitRegistration" type = "submit" value="SUBMIT"/>
+                
+                <br><br><br>
+                
+            </form>
+        </div>
+
+</body>
+</html>
