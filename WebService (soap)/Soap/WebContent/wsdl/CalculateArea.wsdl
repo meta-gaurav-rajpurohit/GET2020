@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://area" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://area" xmlns:intf="http://area" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://area" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="areaTriangle">
+    <complexType>
+     <sequence>
+      <element name="side1" type="xsd:double"/>
+      <element name="side2" type="xsd:double"/>
+      <element name="side3" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="areaTriangleResponse">
+    <complexType>
+     <sequence>
+      <element name="areaTriangleReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="areaTriangleResponse">
+
+      <wsdl:part element="impl:areaTriangleResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="areaTriangleRequest">
+
+      <wsdl:part element="impl:areaTriangle" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CalculateArea">
+
+      <wsdl:operation name="areaTriangle">
+
+         <wsdl:input message="impl:areaTriangleRequest" name="areaTriangleRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:areaTriangleResponse" name="areaTriangleResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CalculateAreaSoapBinding" type="impl:CalculateArea">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="areaTriangle">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="areaTriangleRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="areaTriangleResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CalculateAreaService">
+
+      <wsdl:port binding="impl:CalculateAreaSoapBinding" name="CalculateArea">
+
+         <wsdlsoap:address location="http://localhost:8006/Soap/services/CalculateArea"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
