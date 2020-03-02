@@ -1,0 +1,228 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+  }
+body{
+    /* z-index: -1; */
+    background-image: url(Parking3.jpg);
+    
+    background-attachment: fixed;
+    background-size : cover;
+    /* filter: blur(3px);  */
+    -webkit-backdrop-filter: blur(8px);
+ }
+/*  
+.background-image{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    filter : blur(1px);
+} */ 
+.header{
+    padding-left: 20%;
+    padding-top: 20%;
+    padding-bottom: 20%;
+}
+.heading{
+
+    color:white; 
+    text-shadow: 10px 8px 4px black;
+    font-size: 50px;
+    font-family: 'Helvetica Neue', sans-serif;
+    line-height: 70px; 
+    letter-spacing: 1px;
+}
+/* .subheading{
+    display: flex; 
+    padding-left: 0;
+}
+.subheading:before, .subheading:after{
+    content: "";
+    flex: 1 1; 
+    border-bottom: 2px solid #00000063; 
+    margin: auto; 
+}
+.subheading > h2 {
+    margin-left: -20%;
+} */
+nav{
+	overflow: hidden;
+    background:linear-gradient(to right, rgba(0,0,0,0.8) 40%,rgba(255,225,255,0.6) 100%);
+    position: sticky;
+    top : 0; 
+}
+/* div{
+    border: 2px solid black;
+} */
+nav a{
+    display: block;
+    float : left;
+    color: white;
+    text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+}
+
+.navbar a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.navbar a.active {
+	background-color: #666;
+	color: white;
+}
+fieldset {
+	margin: 5px;
+	padding: 5px;
+	border-radius: 25px;
+	text-align: justify;
+	width: 300px;
+	display: inline-block;
+	border: 1px solid rgba(19, 48, 48, 0.575);
+}
+
+legend {
+	margin-left: 20px;
+	font-size: 18px;
+}
+.empFormHeading {
+	text-align: center;
+}
+.empForm, .passTemplate{
+	margin: 80px auto;
+	padding: 20px;
+	padding-bottom: 0px;
+	width: 800px;
+	height: auto;
+    border-radius: 25px;
+    background:linear-gradient(to bottom, #0099ff 0%,rgba(0,225,255,0.5) 100%);
+    box-shadow: 0px 3px 0px 2px rgba(0,0,0,0.1), 
+                0px 6px 0px 4px rgba(0,0,0,0.1), 
+                0px 9px 0px 6px rgba(0,0,0,0.1), 
+                0px 12px 0px 8px rgba(0,0,0,0.1), 
+                0px 15px 0px 10px rgba(0,0,0,0.1), 
+                0px 18px 0px 12px rgba(0,0,0,0.1), 
+                0px 21px 0px 14px rgba(0,0,0,0.1), 
+                0px 24px 0px 16px rgba(0,0,0,0.1), 
+                0px 27px 0px 18px rgba(0,0,0,0.1), 
+                0px 30px 0px 20px rgba(0,0,0,0.1), 
+                22px 22px 24px 27px rgba(0,0,0,0);
+	/* background: rgba(175, 238, 238, 0.575);
+	box-shadow: 5px 25px 25px rgba(175, 238, 238, 0.575); */
+}
+
+.passOuterBlock{
+    padding-left: 10%;
+    display: block;
+    
+}
+.passTemplate{
+    
+    width: 25%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	padding: 16px;
+	text-align: center;
+    background-color: #f1f1f1;
+    display: inline-block;
+}
+.showPriceCircle{
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    margin-left: calc(50% - 75px);
+    /* text-align: center; */
+    border: 1px solid rgba(66, 68, 68, 0.575);
+    position: relative;
+}
+.showPriceInCircle{
+    position: absolute;
+    font-size: x-large;
+    left: 16%;
+    top: 25%;
+}
+.showListOfPassType{
+    font-size: 10px;
+    color : rgba(66, 68, 68, 0.575);
+}
+.showPassTypeInCircle{
+    font-size: 10px;
+    position: absolute;
+    top: 65%;
+    left:22%
+}
+
+.input:focus, .submit:focus, select:focus, #submitVehical:focus,
+	#submitRegistration:focus {
+	outline: none;
+}
+
+form {
+	padding-top: 25px;
+	padding-left: 25px;
+	padding-bottom: 0px;
+	height: auto;
+}
+
+select {
+	margin-top: 20px;
+	margin-left: 10px;
+	border-radius: 25px;
+	padding-left: 20px;
+	width: 350px;
+	height: 43px;
+}
+.input {
+	margin-left: 20px;
+	margin-right: 20px;
+	width: 300px;
+	height: 20px;
+	border: none;
+	background: transparent;
+}
+
+.gender {
+	margin-left: 40px;
+	margin-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 8px;
+	font-size: 20px;
+}
+#Organization, #VehicleName{
+    background: transparent;
+    border: 1px solid rgba(19, 48, 48, 0.575);
+}
+#submitVehical, #submitRegistration, #submitFeedback ,.pricebutton{
+	margin-bottom: 0;
+	margin-left: calc(50% - 90px);
+	margin-top: 50px;
+	border-radius: 25px;
+	width: 150px;
+	height: 50px;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  /* Track  */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:linear-gradient(to bottom, #0099ff 0%,rgba(0,225,255,0.5) 100%); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #0099ff 80%,rgba(0,225,255,0.5) 100%); 
+    
+  }
