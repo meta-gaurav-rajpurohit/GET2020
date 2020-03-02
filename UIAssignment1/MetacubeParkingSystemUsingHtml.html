@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+
+    <img class="mySlides" src="po.jpg" alt="img"> 
+    <div class="header">
+		<h1>Metacube Parking System</h1>
+	</div>
+	 <nav class="navbar"> 
+ 		<a href="#home" class="active">Home</a> 
+ 		<a href="#containRegistrationForm">Add Employee</a>
+		<a href="#containVehicleRegistrationForm">Add Vehicle</a> 
+        <a href="#pricing">Pricing</a>
+        <a href="#feedbackForm">Feedback</a>
+		 
+	</nav>
+        <div id = "containRegistrationForm" class = "empForm">
+            <div class = "empFormHeading">
+                <h1>SIGN UP</h1>
+            </div>
+            <form action="#containVehicleRegistrationForm" onsubmit = "return varification()" method = "post">
+                
+                
+                <fieldset>
+                <legend>Name</legend>
+				<input type="text" class="input" id="Name" placeholder="Name" required/><br>
+                
+                </fieldset>
+				
+                <fieldset>
+                    <legend>Email ID</legend>
+                    <input type="email" class="input" id="EmailID" placeholder="Email ID" required/><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Password</legend>
+                    <input type="Password" class="input" id="Password" placeholder="Password" required/><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Confirm Password</legend>
+                    <input type="Password" class="input" id="ConfirmPassword" placeholder="Confirm Password" required/><br>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Mobile Number</legend>
+                    <input type="text" class="input" id="MobileNumber" placeholder="Mobile Number" required/><br>
+                </fieldset>
+                
+                	<label><input type="radio" class="gender" id="r1" value="Male" checked/>Male</label>
+                	<label><input type="radio" class="gender" id="r2" value="Female" />Female</label>
+                	<label><input type="radio" class="gender" id="r3" value="Other" />Other</label><br>
+                
+				<select path = "Organization" id = "Organization">
+                    <option value = "M1" label = "M1"></option>
+                    <option value = "M2" label = "M2"></option>
+                    <option value = "M3" label = "M3"></option>
+                </select><br>
+                
+                <input id = "submitRegistration" type = "submit" value="SUBMIT"/>
+                
+                <br><br><br>
+                
+            </form>
+        </div>
+
+
+        <div id="containVehicleRegistrationForm" class="empForm">
+            <div class="empFormHeading">
+                <h1>Add Vehicle</h1>
+            </div>
+            <form action="#containRegistrationFormPrice" method="post">
+    
+                <fieldset>
+                    <legend>Vehicle Company Name</legend>
+                    <input type="text" class="input" id="inputVehicleCompanyName" placeholder="Vehicle Name" required/><br>
+                    
+                </fieldset>
+                <fieldset>
+                    <legend>Vehicle Model</legend>
+                    <input type="text" class="input" id="inputVehicleModel" placeholder="Vehicle Name" required/><br>
+                    
+                </fieldset>
+                <fieldset>
+                    <legend>Vehicle Number</legend>
+                    <input type="text" class="input" id="VehicleNumber" placeholder="Vehicle Number" required/><br>
+                    
+                </fieldset>
+                <fieldset>
+                    <legend>Employee ID</legend>
+                    <input type="text" class="input" id="empId" value="${vehicle.getEmployee().getEmpId()}" readonly="true" required/><br>
+                    
+                </fieldset>
+                <fieldset>
+                    <legend>Identification</legend>
+                    <textarea id="Identification" class="input" placeholder="Identification" required></textarea>
+                    
+                </fieldset>
+                
+                <select path = "vehicleType" id = "VehicleName">
+                        <option value = "Cycle" label = "Cycle"></option>
+                        <option value = "MotorCycle" label = "MotorCycle"></option>
+                        <option value = "FourWheelers" label = "Four Wheelers"></option>
+                <select><br>
+                <!-- <select path = "currency" id = "VehicleCurrency">
+                        <option value = "INR" label = "INR"></option>
+                        <option value = "USD" label = "USD"></option>
+                        <option value = "YEN" label = "YEN"></option>
+                </select><br> -->
+                 <input id="submitVehical" type="submit" /><br>
+                <br> <br>
+            </form>
+        </div>
+
+        
+        <div id="feedbackForm" class="empForm">
+            <div class="empFormHeading">
+                <h1>Feedback</h1>
+            </div>
+            <form action="#containRegistrationFormPrice" method="post">
+    
+                <fieldset>
+                    <legend>Name</legend>
+                    <input type="text" class="input" id="feedbackName" placeholder="Name" required/><br>
+                    
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>Email ID</legend>
+                        <input type="email" class="input" id="feedbackEmailID" placeholder="Email ID" required/><br>
+                    </fieldset>
+    
+                    <fieldset>
+                        <legend>Password</legend>
+                        <input type="text" class="input" id="feedbackSubject" placeholder="Subject" required/><br>
+                    </fieldset>
+               
+                <fieldset>
+                    <legend>Feedback</legend>
+                    <textarea id="feedbackText" class="input" placeholder="Feedback" required></textarea>
+                    
+                </fieldset>
+              
+                 <input id="submitFeedback" type="submit" /><br>
+                <br> <br>
+            </form>
+        </div>
+
+        <div id="pricing">
+            <div id="containCyclePrice" class="empForm">
+                <div>
+                    <h1>CYCLE</h1>
+                </div>
+                <div>
+                    <div>
+                        <h1>$100</h1>   
+                    </div>
+                    <div>
+                        <h2>MONTHLY</h2>
+                    </div>
+                </div>
+                <div>
+                    <h2>$5 DAILY</h2>
+                    <h2>$100 MONTHLY</h2>
+                    <h2>$500 YEARLY</h2>
+                </div>
+                <div>
+                    <input type="button" value="PURCHASE NOW"/>
+                </div>
+            </div>
+            <div id="containMoterCyclePrice" class="empForm">
+                <div>
+                    <h1>MOTER CYCLE</h1>
+                </div>
+                <div>
+                    <div>
+                        <h1>$200</h1>   
+                    </div>
+                    <div>
+                        <h2>MONTHLY</h2>
+                    </div>
+                </div>
+                <div>
+                    <h2>$10 DAILY</h2>
+                    <h2>$200 MONTHLY</h2>
+                    <h2>$1000 YEARLY</h2>
+                </div>
+                <div>
+                    <input type="button" value="PURCHASE NOW"/>
+                </div>
+            </div>
+            <div id="containFourWheelersPrice" class="empForm">
+                <div>
+                    <h1>FOUR WHEELERS</h1>
+                </div>
+                <div>
+                    <div>
+                        <h1>$500</h1>   
+                    </div>
+                    <div>
+                        <h2>MONTHLY</h2>
+                    </div>
+                </div>
+                <div>
+                    <h2>$20 DAILY</h2>
+                    <h2>$500 MONTHLY</h2>
+                    <h2>$3500 YEARLY</h2>
+                </div>
+                <div>
+                    <input type="button" value="PURCHASE NOW"/>
+                </div>
+            </div>
+        </div>
+        
+
+</body>
+</html>
