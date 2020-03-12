@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="MetacubeParkingSystemCSS.css">
+        <style>
+            #fieldsetEmailID, #fieldsetPassword, #fieldsetConfirmPassword, #fieldsetNumber, 
+            #fieldsetGender, #Organization, #submitRegistration, #containVehicleRegistrationForm,
+            #fieldsetInputVehicleModel, #fieldsetVehicleNumber, #fieldsetempId, #fieldsetIdentification,
+            #VehicleName, #VehicleCurrency, #submitVehical, #receipt, #pass{
+                display: none;
+            }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 15px;
+            }
+            th {
+                text-align: center;   
+            }
+            table{
+                margin: auto;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <div id = "containRegistrationForm" class = "empForm" data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom">
+            <div class = "empFormHeading">
+                <h1>SIGN UP</h1>
+            </div>
+            <form >
+                <fieldset id="fieldsetName">
+                <legend>Name</legend>
+				<input type="text" class="input" id="Name" placeholder="Name" onkeydown="fn(this, 'Name', 'fieldsetEmailID')" required/><br>
+                </fieldset>
+				
+                <fieldset id="fieldsetEmailID">
+                    <legend>Email ID</legend>
+                    <input type="email" class="input" id="EmailID" placeholder="Email ID" onkeydown="fn(this, 'EmailID', 'fieldsetPassword')" required/><br>
+                </fieldset>
+
+                <fieldset id="fieldsetPassword">
+                    <legend>Password</legend>
+                    <input type="Password" class="input" id="Password" placeholder="Password" onkeydown="fn(this, 'Password', 'fieldsetConfirmPassword')" required/><br>
+                </fieldset>
+
+                <fieldset id="fieldsetConfirmPassword">
+                    <legend>Confirm Password</legend>
+                    <input type="Password" class="input" id="ConfirmPassword" placeholder="Confirm Password" onkeydown="fn(this, 'ConfirmPassword', 'fieldsetNumber')" required/><br>
+                </fieldset>
+                
+                <fieldset id="fieldsetNumber">
+                    <legend>Mobile Number</legend>
+                    <input type="text" class="input" id="MobileNumber" placeholder="Mobile Number" onkeydown="fn(this, 'MobileNumber', 'fieldsetGender')" required/><br>
+                </fieldset>
+                
+                <fieldset id="fieldsetGender">
+                    <legend>Gender</legend>
+                	<label><input type="radio" name="gender" class="gender" id="r1" value="Male" onclick="show('r1', 'Organization')" required/>Male</label>
+                	<label><input type="radio" name="gender" class="gender" id="r2" value="Female" onclick="show('r2', 'Organization')" required/>Female</label>
+                	<label><input type="radio" name="gender" class="gender" id="r3" value="Other" onclick="show('r3', 'Organization')" required/>Other</label><br>
+                </fieldset>
+
+				<select id = "Organization" onchange="show('Organization', 'submitRegistration')">
+                    <option value = "M1" >M1</option>
+                    <option value = "M2" >M2</option>
+                    <option value = "M3" >M3</option>
+                </select><br>
+                
+                <input id = "submitRegistration" type = "button" value="SUBMIT" onclick="varification()"/>
+                
+                <br><br><br>
+                
+            </form>
+        </div>
+
+        <div id="containVehicleRegistrationForm" class="empForm" data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom">
+            <div class="empFormHeading">
+                <h1>Add Vehicle</h1>
+            </div>
+            <form action="#containRegistrationFormPrice" method="post">
+    
+                <fieldset id="fieldsetInputVehicleName">
+                    <legend>Vehicle Company Name</legend>
+                    <input type="text" class="input" id="inputVehicleName" placeholder="Vehicle Name" onkeydown="showVehicle('fieldsetInputVehicleModel')" required/><br>
+                    
+                </fieldset>
+                <fieldset id="fieldsetInputVehicleModel">
+                    <legend>Vehicle Model</legend>
+                    <input type="text" class="input" id="inputVehicleModel" placeholder="Vehicle Name" onkeydown="showVehicle('fieldsetVehicleNumber')" required/><br>
+                    
+                </fieldset>
+                <fieldset id="fieldsetVehicleNumber">
+                    <legend>Vehicle Number</legend>
+                    <input type="text" class="input" id="VehicleNumber" placeholder="Vehicle Number" onkeydown="showVehicle('fieldsetempId')" required/><br>
+                    
+                </fieldset>
+                <fieldset id="fieldsetempId">
+                    <legend>Employee ID</legend>
+                    <input type="text" class="input" id="empId" onkeydown="showVehicle('fieldsetIdentification')" readonly="true" required/><br>
+                    
+                </fieldset>
+                <fieldset id="fieldsetIdentification">
+                    <legend>Identification</legend>
+                    <textarea id="Identification" class="input" onkeydown="showVehicle('VehicleName')" placeholder="Identification" required></textarea>
+                    
+                </fieldset>
+                
+                <select id = "VehicleName" onchange="show('VehicleName','VehicleCurrency')">
+                        <option value = "Cycle">Cycle</option>
+                        <option value = "MotorCycle">MotorCycle</option>
+                        <option value = "FourWheelers">FourWheelers</option>
+                <select><br>
+                <select path = "currency" id = "VehicleCurrency" onchange="show('VehicleCurrency','submitVehical')">
+                        <option value = "INR">INR</option>
+                        <option value = "USD">USD</option>
+                        <option value = "YEN">YEN</option>
+                </select><br>
+                 <input id="submitVehical" value="submit" type="button" onclick="varificationVehicleRegistrationForm()"/><br>
+                <br> <br>
+            </form>
+        </div>
+        
+        <div id = "pass" class = "empForm">
+            <table>
+                <tr>
+                    <th id = "heading" colspan="3"></th>
+                </tr>
+                <tr>
+                    <th>Daily Pass</th>
+                    <th>Monthly Pass</th>
+                    <th>Yearly Pass</th>
+                </tr>
+                <tr>
+                    <td><input id = "myButton1" class = "passPrice" type = "button" onclick = "result(this.value)"/></td>
+                    <td><input id = "myButton2" class = "passPrice" type = "button" onclick = "result(this.value)"/></td>
+                    <td><input id = "myButton3" class = "passPrice" type = "button" onclick = "result(this.value)"/></td>
+                </tr>
+            </table>
+        </div>
+        <div id = "receipt" class = "empForm">
+            <table id = "information">
+                <tr>
+                    <th colspan="3">Metacube Parking Receipt</th>
+                </tr>
+                <tr>
+                    <th>Employee ID : </th>
+                    <th id = "idInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                <tr>
+                    <th>Name : </th>
+                    <th id = "nameInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                <tr>
+                    <th>Mobile Number : </th>
+                    <th id = "numberInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                <tr>
+                    <th>Gender : </th>
+                    <th id = "genderInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                <tr>
+                    <th>Vehicle Name : </th>
+                    <th id = "vehicleNameInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                <tr>
+                    <th>Vehicle Number : </th>
+                    <th id = "vehicleNumberInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                <tr>
+                    <th>Vehicle Type : </th>
+                    <th id = "vehicleTypeInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                <tr>
+                    <th colspan = "2">Total Price : </th>
+                    <th id = "priceInReceipt" colspan = "2"></th>
+                    
+                </tr>
+                
+            </table>
+        </div>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="javascript.js"></script>
+    </body>
+</html>
